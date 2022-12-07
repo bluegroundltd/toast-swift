@@ -14,6 +14,7 @@ public class AppleToastView : UIView, ToastView {
 
     private let darkBackgroundColor: UIColor
     private let lightBackgroundColor: UIColor
+    private let toastDirectionMargin: CGFloat
     
     private let child: UIView
     
@@ -23,11 +24,13 @@ public class AppleToastView : UIView, ToastView {
         child: UIView,
         minHeight: CGFloat = 58,
         minWidth: CGFloat = 150,
+        toastDirectionMargin: CGFloat = 0,
         darkBackgroundColor: UIColor = UIColor(red: 0.13, green: 0.13, blue: 0.13, alpha: 1.00),
         lightBackgroundColor: UIColor = UIColor(red: 0.99, green: 0.99, blue: 0.99, alpha: 1.00)
     ) {
         self.minHeight = minHeight
         self.minWidth = minWidth
+        self.toastDirectionMargin = toastDirectionMargin
         self.darkBackgroundColor = darkBackgroundColor
         self.lightBackgroundColor = lightBackgroundColor
         self.child = child
@@ -51,10 +54,10 @@ public class AppleToastView : UIView, ToastView {
         
         switch toast.direction {
         case .bottom:
-            bottomAnchor.constraint(equalTo: superview.layoutMarginsGuide.bottomAnchor, constant: 0).isActive = true
+            bottomAnchor.constraint(equalTo: superview.layoutMarginsGuide.bottomAnchor, constant: (-1) * toastDirectionMargin).isActive = true
             
         case .top:
-            topAnchor.constraint(equalTo: superview.layoutMarginsGuide.topAnchor, constant: 0).isActive = true
+            topAnchor.constraint(equalTo: superview.layoutMarginsGuide.topAnchor, constant: toastDirectionMargin).isActive = true
         }
         
         addSubviewConstraints()
