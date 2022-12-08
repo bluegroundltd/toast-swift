@@ -147,7 +147,7 @@ public class Toast {
                        delay: 0,
                        options: [.curveEaseIn, .allowUserInteraction],
                        animations: {
-            self.view.transform = self.initialTransform
+            self.view.alpha = 0.4
         }, completion: { _ in
             self.view.removeFromSuperview()
             completion?()
