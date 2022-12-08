@@ -54,10 +54,10 @@ public class AppleToastView : UIView, ToastView {
         
         switch toast.direction {
         case .bottom:
-            bottomAnchor.constraint(equalTo: superview.layoutMarginsGuide.bottomAnchor, constant: (-1) * toastDirectionMargin).isActive = true
+            bottomAnchor.constraint(equalTo: superview.bottomAnchor, constant: (-1) * toastDirectionMargin).isActive = true
             
         case .top:
-            topAnchor.constraint(equalTo: superview.layoutMarginsGuide.topAnchor, constant: toastDirectionMargin).isActive = true
+            topAnchor.constraint(equalTo: superview.topAnchor, constant: toastDirectionMargin).isActive = true
         }
         
         addSubviewConstraints()
